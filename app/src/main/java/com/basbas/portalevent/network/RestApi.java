@@ -26,5 +26,6 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("user_login.php")
     Call<ResponseData>userLogin(@Field("username") String usermame,
-                                @Field("password") String password);
+                                @Field("password") String password
+    );
 }
