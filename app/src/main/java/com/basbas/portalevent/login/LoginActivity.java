@@ -11,8 +11,11 @@ import com.basbas.portalevent.R;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.network.RetroServer;
 import com.basbas.portalevent.ui.register.RegisterActivity;
+import com.basbas.portalevent.utils.MyFunction;
 
-public class LoginActivity extends AppCompatActivity {
+//setiap activity yang dibuat, di extends ke MyFunction
+//supya bisa mendapatkan method pesan dan accseskelas
+public class LoginActivity extends MyFunction {
 
     TextView tvGoToegister;
     @Override
@@ -35,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         tvGoToegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                pesan("Ke register");
+               aksesclass(RegisterActivity.class);
             }
         });
     }

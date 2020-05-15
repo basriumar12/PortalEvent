@@ -10,10 +10,12 @@ import com.basbas.portalevent.R;
 import com.basbas.portalevent.model.ResponseData;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.network.RetroServer;
+import com.basbas.portalevent.utils.MyFunction;
 
 import retrofit2.Call;
 
-public class RegisterActivity extends AppCompatActivity {
+
+public class RegisterActivity extends MyFunction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
