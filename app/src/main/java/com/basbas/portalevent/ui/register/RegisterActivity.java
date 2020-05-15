@@ -21,8 +21,8 @@ public class RegisterActivity extends MyFunction {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getActionBar().setTitle("Register");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getString(R.string.register));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         registerAccount();
