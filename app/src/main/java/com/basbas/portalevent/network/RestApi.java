@@ -13,7 +13,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("user_register.php")
-    Call<ResponseData> userRegister(@Field("nama_user") String namaUser,
+    Call<ResponseData>userRegister(@Field("nama_user") String namaUser,
                                   @Field("username_user") String userName,
                                   @Field("pass_user") String password,
                                   @Field("alamat") String alamat,
@@ -23,4 +23,8 @@ public interface RestApi {
                                   );
 
 
+    @FormUrlEncoded
+    @POST("user_login.php")
+    Call<ResponseData>userLogin(@Field("username") String usermame,
+                                @Field("password") String password);
 }
