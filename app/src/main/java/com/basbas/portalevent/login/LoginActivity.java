@@ -13,11 +13,14 @@ import com.basbas.portalevent.R;
 import com.basbas.portalevent.model.ResponseData;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.network.RetroServer;
+import com.basbas.portalevent.pref.SessionPref;
 import com.basbas.portalevent.ui.main.MainActivity;
 import com.basbas.portalevent.ui.register.RegisterActivity;
 import com.basbas.portalevent.utils.MyFunction;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 //setiap activity yang dibuat, di extends ke MyFunction
 //supya bisa mendapatkan method pesan dan accseskelas
@@ -25,6 +28,7 @@ public class LoginActivity extends MyFunction {
     TextView edtUsername,edtPassword;
     Button btn_Login;
     TextView tvGoToegister;
+    SessionPref sessionPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,28 +38,20 @@ public class LoginActivity extends MyFunction {
         //dan untuk http koneksi ke server gunakan method baru
         initView();
         actionButton();
-        postLogin();
+        loginAction();
     }
 
-    private void postLogin() {
-        RestApi api = RetroServer.getClient().create(RestApi.class);
-//        Call<ResponseData> userLogin = api.userLogin(
-//        );
-    }
+//    private void postLogin() {
+//
+//    }
 
     private void actionButton() {
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loginAction();
                 aksesclass(MainActivity.class);
-                String vUsername = edtUsername.getText().toString();
-                String vPassword = edtPassword.getText().toString();
-                if(vUsername.isEmpty() || vPassword.isEmpty()){
-                    pesan("Jangan kosong ya");
-                }else {
-                    postLogin();
 
-                }
             }
         });
         tvGoToegister.setOnClickListener(new View.OnClickListener() {
@@ -63,11 +59,44 @@ public class LoginActivity extends MyFunction {
             public void onClick(View v) {
                 pesan("Ke register");
                aksesclass(RegisterActivity.class);
+
             }
         });
     }
 
+    public void loginAction() {
+        String vUsername = edtUsername.getText().toString();
+        String vPassword = edtPassword.getText().toString();
+
+        if(vUsername.isEmpty() || vPassword.isEmpty()){
+            pesan("Jangan kosong ya");
+        }else {
+            btn_Login.setVisibility(View.VISIBLE);
+            RestApi api = RetroServer.getClient().create(RestApi.class);
+            Call<ResponseData> userLogin = api.userLogin(vUsername,vPassword);
+            userLogin.enqueue(new Callback<ResponseData>() {
+                @Override
+                public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                    int kode = response.body().getKode();
+                    if(kode==1){
+                        sessionPref.createLoginSession("");
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        pesan("Berhasil Login");
+                    }else {
+                        pesan("Coba Cek Username dan Password lagi");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseData> call, Throwable t) { ;
+                    pesan("Gagal Login");
+                }
+            });
+        }
+    }
+
     private void initView() {
+        sessionPref = new SessionPref(LoginActivity.this);
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
         btn_Login = findViewById(R.id.btn_login);
