@@ -48,12 +48,12 @@ dan gunakan style untuk mendapatkan font google seperti
     <Button
         style="@style/TextAppearance.App.TextView"
         android:textSize="@dimen/text_16"
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_x3"
         android:background="@color/colorPrimary"
-        android:text="@string/register"
+        android:text="@string/login"
         android:textColor="@color/black"
         />
 
