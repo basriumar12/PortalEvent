@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="@dimen/space_x2"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity">
+
+<!--jika menggunakan margin atau padding untuk ukurannya di ambil dari-->
+<!--    dimen.xml seperti contoh   android:layout_margin="@dimen/space_x2"-->
+<!--    text atau string di simpan dalam string.xml
+dan gunakan style untuk mendapatkan font google seperti
+    style="@style/TextAppearance.App.TextView"
+    di setiap textview, button dan editext
+-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/TextAppearance.App.TextView"
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="@dimen/text_16"
+            style="@style/TextAppearance.App.TextView"
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        style="@style/TextAppearance.App.TextView"
+        android:textSize="@dimen/text_16"
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x3"
+        android:background="@color/colorPrimary"
+        android:text="@string/register"
+        android:textColor="@color/black"
+        />
+
+    <ProgressBar
+        android:id="@+id/pb_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:fontFamily="@font/googlesansregular"
+        android:id="@+id/tv_go_to_register"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/belum_punya_akun_silahkan_register"
+        android:layout_marginTop="@dimen/space_x7_half"
+        style="@style/TextAppearance.App.TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</androidx.appcompat.widget.LinearLayoutCompat>
