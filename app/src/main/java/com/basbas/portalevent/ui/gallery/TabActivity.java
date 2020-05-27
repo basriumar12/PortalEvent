@@ -1,15 +1,12 @@
 package com.basbas.portalevent.ui.gallery;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import android.widget.Toolbar;
-
 import com.basbas.portalevent.R;
+import com.basbas.portalevent.ui.category.Adapter;
 import com.basbas.portalevent.ui.category.Catering;
 import com.basbas.portalevent.ui.category.Dekorasi;
 import com.basbas.portalevent.ui.category.EventOrganizer;
@@ -18,65 +15,51 @@ import com.basbas.portalevent.ui.category.Pelaminan;
 import com.basbas.portalevent.ui.category.PhotoShooting;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class TabActivity extends AppCompatActivity {
     TabLayout tabLayout;
-    FrameLayout frameLayout;
+    ViewPager viewPager;
+    Adapter adapter;
+    ArrayList<Fragment> arrayFragments;
+    ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setAdapter(adapter);
 
-        frameLayout = findViewById(R.id.frame_layout);
-        tabLayout = findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText("Catering"));
-        tabLayout.addTab(tabLayout.newTab().setText("Dekorasi"));
-        tabLayout.addTab(tabLayout.newTab().setText("Event Organizer"));
-        tabLayout.addTab(tabLayout.newTab().setText("Hiburan"));
-        tabLayout.addTab(tabLayout.newTab().setText("Pelaminan"));
-        tabLayout.addTab(tabLayout.newTab().setText("Photo Shooting"));
+        addFragment();
+        addTittle();
+        viewPager();
+    }
+    private void addFragment(){
+        arrayFragments = new ArrayList<>();
+        arrayFragments.add(new Catering());
+        arrayFragments.add(new Dekorasi());
+        arrayFragments.add(new EventOrganizer());
+        arrayFragments.add(new Hiburan());
+        arrayFragments.add(new Pelaminan());
+        arrayFragments.add(new PhotoShooting());
+    }
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                Fragment fragment = null;
-                switch (tab.getPosition()){
-                    case 0 :
-                        fragment = new Catering();
-                        break;
-                    case 1:
-                        fragment = new Dekorasi();
-                        break;
-                    case 2:
-                        fragment = new EventOrganizer();
-                        break;
-                    case 3:
-                        fragment = new Hiburan();
-                        break;
-                    case 4 :
-                        fragment = new Pelaminan();
-                        break;
-                    case 5 :
-                        fragment = new PhotoShooting();
-                        break;
-                }
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame_layout,fragment);
-                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                fragmentTransaction.commit();
-            }
+    private void addTittle(){
+        arrayList = new ArrayList<>();
+        arrayList.add("Catering");
+        arrayList.add("Dekorasi");
+        arrayList.add("Event Oragnizer");
+        arrayList.add("Hiburan");
+        arrayList.add("Pelaminan");
+        arrayList.add("Photo Shooting");
+    }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+    private void viewPager(){
+        adapter = new Adapter(getSupportFragmentManager(),arrayFragments,arrayList);
+        viewPager.setAdapter(adapter);
 
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
