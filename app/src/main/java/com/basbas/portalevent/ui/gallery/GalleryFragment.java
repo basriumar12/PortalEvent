@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.basbas.portalevent.R;
 
 public class GalleryFragment extends Fragment{
-    
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Intent intent = new Intent(getActivity(),TabActivity.class);

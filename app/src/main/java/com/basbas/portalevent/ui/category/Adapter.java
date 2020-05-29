@@ -1,7 +1,5 @@
 package com.basbas.portalevent.ui.category;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;

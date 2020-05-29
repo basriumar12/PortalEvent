@@ -29,5 +29,16 @@ public interface RestApi {
                                 @Field("password") String password
     );
 
+    @FormUrlEncoded
+    @POST("get_barang.php/id_jenis=jenis-0001")
+    Call<ResponseData>getBarang001(@Field("id_pelapak") String idPelapak,
+                                  @Field("id_mitra") String idMitra,
+                                  @Field("id_jenis") String namaPelapak,
+                                  @Field("detail") String idJenis,
+                                  @Field("ketersediaan") String detail,
+                                  @Field("harga") String harga,
+                                  @Field("foto") String foto
+
+    );
 
 }
