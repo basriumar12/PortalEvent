@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.basbas.portalevent.login.LoginActivity;
+import com.basbas.portalevent.ui.login.LoginActivity;
 import com.basbas.portalevent.ui.main.MainActivity;
 
 
@@ -26,7 +26,7 @@ public class SessionPref {
         editor = pref.edit();
     }
 
-    public void createLoginSession( String email){
+    public void createLoginSession(String email){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_EMAIL, email);
         editor.commit();
