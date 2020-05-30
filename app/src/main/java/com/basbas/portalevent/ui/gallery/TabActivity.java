@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.basbas.portalevent.R;
 import com.basbas.portalevent.ui.category.Adapter;
 import com.basbas.portalevent.ui.category.Catering;
-import com.basbas.portalevent.ui.category.Dekorasi;
+import com.basbas.portalevent.ui.category.DekorasiFragment;
 import com.basbas.portalevent.ui.category.EventOrganizer;
 import com.basbas.portalevent.ui.category.Hiburan;
 import com.basbas.portalevent.ui.category.Pelaminan;
@@ -39,7 +39,7 @@ public class TabActivity extends AppCompatActivity {
     private void addFragment(){
         arrayFragments = new ArrayList<>();
         arrayFragments.add(new Catering());
-        arrayFragments.add(new Dekorasi());
+        arrayFragments.add(new DekorasiFragment());
         arrayFragments.add(new EventOrganizer());
         arrayFragments.add(new Hiburan());
         arrayFragments.add(new Pelaminan());

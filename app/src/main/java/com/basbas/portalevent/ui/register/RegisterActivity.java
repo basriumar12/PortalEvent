@@ -1,7 +1,6 @@
 package com.basbas.portalevent.ui.register;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.basbas.portalevent.R;
-import com.basbas.portalevent.login.LoginActivity;
+import com.basbas.portalevent.ui.login.LoginActivity;
 import com.basbas.portalevent.model.ResponseData;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.network.RetroServer;
-import com.basbas.portalevent.ui.main.MainActivity;
 import com.basbas.portalevent.utils.MyFunction;
 
 import retrofit2.Call;

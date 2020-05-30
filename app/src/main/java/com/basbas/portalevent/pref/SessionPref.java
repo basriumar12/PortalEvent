@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.basbas.portalevent.login.LoginActivity;
+import com.basbas.portalevent.ui.login.LoginActivity;
 import com.basbas.portalevent.ui.main.MainActivity;
 
 
