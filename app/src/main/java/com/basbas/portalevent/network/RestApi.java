@@ -30,10 +30,7 @@ public interface RestApi {
                                 @Field("password") String password
     );
 
-    @FormUrlEncoded
-    @POST("get_barang.php")
-    Call<ResponseData>getBarangCategories(@Field("id_jenis") String idJenis
-    );
+
     @FormUrlEncoded
     @POST("get_barang.php")
     Call<ArrayList<ResponseCategories>>getBarangCategories(

@@ -16,24 +16,24 @@ import com.basbas.portalevent.ui.AdapterCategory.CateringAdapter;
 import java.util.List;
 
 public class CateringFragment extends Fragment {
-    CateringAdapter cateringAdapter;
-    RecyclerView recyclerView;
-    List<ResponseCatering> responseCaterings;
+//    CateringAdapter cateringAdapter;
+//    RecyclerView recyclerView;
+//    List<ResponseCatering> responseCaterings;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_catering, container, false);
-       recyclerView = view.findViewById(R.id.rv_catering);
-       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-       getDataCatering();
+//       recyclerView = view.findViewById(R.id.rv_catering);
+//       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//       getDataCatering();
        return view;
     }
 
 
-    private void getDataCatering() {
-        //parsing json disini
-    }
+//    private void getDataCatering() {
+//        //parsing json disini
+//    }
 
 }

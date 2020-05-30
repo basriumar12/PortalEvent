@@ -1,7 +1,5 @@
 package com.basbas.portalevent.model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class ResponseCatering {
     private String ketersediaan;
 

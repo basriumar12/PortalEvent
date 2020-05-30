@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_fragment"
-    tools:context=".ui.category.EventOrganizerFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="event" />
+        android:id="@+id/rv_categoriess"
+        android:layout_height="match_parent"/>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_circularr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+</RelativeLayout>
