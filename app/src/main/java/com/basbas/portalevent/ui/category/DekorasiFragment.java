@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.basbas.portalevent.R;
 
-public class Dekorasi extends Fragment {
+public class DekorasiFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

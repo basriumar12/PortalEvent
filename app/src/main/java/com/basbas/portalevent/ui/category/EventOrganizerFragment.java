@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 
 import com.basbas.portalevent.R;
 
-public class Catering extends Fragment {
+public class EventOrganizerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catering, container, false);
+        return inflater.inflate(R.layout.fragment_event_organizer, container, false);
     }
 }

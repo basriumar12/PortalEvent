@@ -4,12 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_fragment"
-    tools:context=".ui.category.Catering">
+    tools:context=".ui.category.CateringFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="catering" />
-
+        android:id="@+id/rv_catering"/>
 </RelativeLayout>

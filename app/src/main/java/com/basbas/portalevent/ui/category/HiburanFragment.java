@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 
 import com.basbas.portalevent.R;
 
-public class Pelaminan extends Fragment {
-      @Override
+public class HiburanFragment extends Fragment {
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pelaminan, container, false);
+        return inflater.inflate(R.layout.fragment_hiburan, container, false);
     }
 }
