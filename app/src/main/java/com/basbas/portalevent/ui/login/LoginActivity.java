@@ -30,7 +30,7 @@ public class LoginActivity extends MyFunction {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        sessionPref.checkLogin();
+
         //untuk inisialisasi id dibuat dalam method initView
         //unutuk action button dibuat dalam method action button
         //dan untuk http koneksi ke server gunakan method baru
@@ -95,6 +95,7 @@ public class LoginActivity extends MyFunction {
 
     private void initView() {
         sessionPref = new SessionPref(LoginActivity.this);
+        sessionPref.checkLogin();
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
         btn_Login = findViewById(R.id.btn_login);
