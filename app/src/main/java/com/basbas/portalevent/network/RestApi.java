@@ -1,6 +1,9 @@
 package com.basbas.portalevent.network;
 
+import com.basbas.portalevent.model.ResponseCategories;
 import com.basbas.portalevent.model.ResponseData;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -31,5 +34,14 @@ public interface RestApi {
     @POST("get_barang.php")
     Call<ResponseData>getBarangCategories(@Field("id_jenis") String idJenis
     );
+    @FormUrlEncoded
+    @POST("get_barang.php")
+    Call<ArrayList<ResponseCategories>>getBarangCategories(
+
+            @Field("id_jenis") String idJenis
+
+
+    );
+
 
 }

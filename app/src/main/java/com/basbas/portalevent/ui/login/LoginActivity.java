@@ -1,13 +1,10 @@
-package com.basbas.portalevent.login;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.basbas.portalevent.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.basbas.portalevent.R;
 import com.basbas.portalevent.model.ResponseData;
@@ -33,6 +30,7 @@ public class LoginActivity extends MyFunction {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         //untuk inisialisasi id dibuat dalam method initView
         //unutuk action button dibuat dalam method action button
         //dan untuk http koneksi ke server gunakan method baru
@@ -65,7 +63,7 @@ public class LoginActivity extends MyFunction {
     }
 
     public void loginAction() {
-        String vUsername = edtUsername.getText().toString();
+        final String vUsername = edtUsername.getText().toString();
         String vPassword = edtPassword.getText().toString();
 
         if(vUsername.isEmpty() || vPassword.isEmpty()){
@@ -79,7 +77,7 @@ public class LoginActivity extends MyFunction {
                 public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                     int kode = response.body().getKode();
                     if(kode==1){
-                        sessionPref.createLoginSession("");
+                        sessionPref.createLoginSession(vUsername);
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                         pesan("Berhasil Login");
                     }else {
@@ -97,6 +95,7 @@ public class LoginActivity extends MyFunction {
 
     private void initView() {
         sessionPref = new SessionPref(LoginActivity.this);
+        sessionPref.checkLogin();
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
         btn_Login = findViewById(R.id.btn_login);

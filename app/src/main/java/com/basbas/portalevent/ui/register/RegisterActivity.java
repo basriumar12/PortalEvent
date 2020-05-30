@@ -1,7 +1,6 @@
 package com.basbas.portalevent.ui.register;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.basbas.portalevent.R;
-import com.basbas.portalevent.login.LoginActivity;
+import com.basbas.portalevent.ui.login.LoginActivity;
 import com.basbas.portalevent.model.ResponseData;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.network.RetroServer;
-import com.basbas.portalevent.ui.main.MainActivity;
 import com.basbas.portalevent.utils.MyFunction;
 
 import retrofit2.Call;
@@ -31,8 +29,9 @@ public class RegisterActivity extends MyFunction {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //getActionBar().setTitle("Register");
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setTitle(getString(R.string.register));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nama = findViewById(R.id.edt_name);
         username = findViewById(R.id.edt_username);
