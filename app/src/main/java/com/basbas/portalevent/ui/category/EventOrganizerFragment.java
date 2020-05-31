@@ -70,6 +70,9 @@ public class EventOrganizerFragment extends Fragment {
                     AdapterCategories adapterCategories = new AdapterCategories(getContext(),responseCategories);
                     recyclerView.setAdapter(adapterCategories);
                     adapterCategories.notifyDataSetChanged();
+                }else{
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(getContext(), "Dat aKosong", Toast.LENGTH_SHORT).show();
                 }
             }
 

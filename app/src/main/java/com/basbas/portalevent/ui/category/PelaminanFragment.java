@@ -71,6 +71,9 @@ public class PelaminanFragment extends Fragment {
                     AdapterCategories adapterCategories = new AdapterCategories(getContext(),dataResponse);
                     recyclerView.setAdapter(adapterCategories);
                     adapterCategories.notifyDataSetChanged();
+                }else{
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(getContext(), "Dat aKosong", Toast.LENGTH_SHORT).show();
                 }
             }
 

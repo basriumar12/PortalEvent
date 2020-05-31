@@ -1,6 +1,8 @@
 package com.basbas.portalevent.ui.category;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,13 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
 
             Picasso.get().load(url).error(R.drawable.ic_launcher_background).into(holder.imgCategories);
         }
+        holder.tvDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DetailCategory detailCategory = new DetailCategory();
+                Bundle bundle = new Bundle();
+            }
+        });
 
     }
 
