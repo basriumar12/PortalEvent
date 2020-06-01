@@ -42,7 +42,7 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
     public void onBindViewHolder(@NonNull AdapterCategories.MyHolder holder, final int position) {
 
         holder.tvTitle.setText(data.get(position).getNama_lapak());
-        holder.tvPrice.setText("RP"+data.get(position).getHarga());
+        holder.tvPrice.setText("RP."+data.get(position).getHarga());
         String url = Constant.BASEURLIMAGE +data.get(position).getUrl_foto();
         if (data.get(position).getUrl_foto().isEmpty()){
             holder.imgCategories.setImageResource(R.drawable.ic_launcher_foreground);
@@ -55,6 +55,10 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
             public void onClick(View v) {
                Intent intent = new Intent(con,DetailCategory.class);
                intent.putExtra("title",data.get(position).getNama_lapak());
+               intent.putExtra("harga",data.get(position).getHarga());
+               intent.putExtra("detail",data.get(position).getDetail());
+               intent.putExtra("gambar",data.get(position).getUrl_foto());
+
                con.startActivity(intent);
             }
         });
