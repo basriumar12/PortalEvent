@@ -39,7 +39,7 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterCategories.MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterCategories.MyHolder holder, final int position) {
 
         holder.tvTitle.setText(data.get(position).getNama_lapak());
         holder.tvPrice.setText("RP"+data.get(position).getHarga());
@@ -53,8 +53,9 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
         holder.tvDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailCategory detailCategory = new DetailCategory();
-                Bundle bundle = new Bundle();
+               Intent intent = new Intent(con,DetailCategory.class);
+               intent.putExtra("title",data.get(position).getNama_lapak());
+               con.startActivity(intent);
             }
         });
 

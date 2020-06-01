@@ -13,6 +13,7 @@ public class DetailCategory extends AppCompatActivity {
     TextView tvTittle,tvHarga,tvDetail;
     ImageView imageView;
     Button btnOrder;
+    String id,tittle,detail,harga,gambar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +26,14 @@ public class DetailCategory extends AppCompatActivity {
         imageView = findViewById(R.id.image_view);
         btnOrder = findViewById(R.id.btn_order);
 
+        id = getIntent().getStringExtra("id");
+        tittle = getIntent().getStringExtra("title");
+        harga = getIntent().getStringExtra("harga");
+        detail = getIntent().getStringExtra("detail");
+        gambar = getIntent().getStringExtra("gambar");
+
+        tvTittle.setText(tittle);
+        tvHarga.setText(harga);
+        tvDetail.setText(detail);
     }
 }
