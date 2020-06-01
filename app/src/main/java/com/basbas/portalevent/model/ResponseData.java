@@ -10,6 +10,16 @@ public class ResponseData{
 	@SerializedName("kode")
 	private int kode;
 
+	String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void setPesan(String pesan){
 		this.pesan = pesan;
 	}

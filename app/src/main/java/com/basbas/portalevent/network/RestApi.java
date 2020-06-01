@@ -2,6 +2,7 @@ package com.basbas.portalevent.network;
 
 import com.basbas.portalevent.model.ResponseCategories;
 import com.basbas.portalevent.model.ResponseData;
+import com.basbas.portalevent.model.ResponseKeranjang;
 
 import java.util.ArrayList;
 
@@ -16,26 +17,35 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("user_register.php")
-    Call<ResponseData>userRegister(@Field("nama_user") String namaUser,
-                                  @Field("username_user") String userName,
-                                  @Field("pass_user") String password,
-                                  @Field("alamat") String alamat,
-                                  @Field("no_telp") String noTelp
-                                  );
+    Call<ResponseData> userRegister(@Field("nama_user") String namaUser,
+                                    @Field("username_user") String userName,
+                                    @Field("pass_user") String password,
+                                    @Field("alamat") String alamat,
+                                    @Field("no_telp") String noTelp
+    );
 
 
     @FormUrlEncoded
     @POST("user_login.php")
-    Call<ResponseData>userLogin(@Field("username") String userName,
-                                @Field("password") String password
+    Call<ResponseData> userLogin(@Field("username") String userName,
+                                 @Field("password") String password
     );
 
 
     @FormUrlEncoded
     @POST("get_barang.php")
-    Call<ArrayList<ResponseCategories>>getBarangCategories(
+    Call<ArrayList<ResponseCategories>> getBarangCategories(
 
             @Field("id_jenis") String idJenis
+
+
+    );
+
+    @FormUrlEncoded
+    @POST("get_keranjang.php")
+    Call<ArrayList<ResponseKeranjang>> getKeranjang(
+
+            @Field("id_pembeli") String idJenis
 
 
     );

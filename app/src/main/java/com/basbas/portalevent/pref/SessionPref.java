@@ -26,9 +26,10 @@ public class SessionPref {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String email){
+    public void createLoginSession(String email, String id){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_ID, id);
         editor.commit();
     }
 
