@@ -35,23 +35,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="nama"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
                 <TextView
                     android:id="@+id/tv_price_categories"
                     android:fontFamily="@font/googlesansregular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="rp 120.000"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/space"
+                    android:layout_marginTop="@dimen/space_x2"
                     android:id="@+id/tv_detail_categories"
                     android:fontFamily="@font/googlesansregular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/detail"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>

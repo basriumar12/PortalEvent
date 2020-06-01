@@ -1,8 +1,10 @@
 package com.basbas.portalevent.ui.category;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +24,8 @@ public class DetailCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_category);
-
+        getSupportActionBar().setTitle(getString(R.string.detail_categories));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tvTittle = findViewById(R.id.tv_title);
         tvHarga = findViewById(R.id.tv_harga);
         tvDetail = findViewById(R.id.tv_detail);
@@ -39,5 +42,14 @@ public class DetailCategory extends AppCompatActivity {
         tvTittle.setText(tittle);
         tvHarga.setText(harga);
         tvDetail.setText(detail);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

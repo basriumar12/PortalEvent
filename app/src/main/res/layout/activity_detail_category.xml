@@ -8,6 +8,8 @@
 
 
     <ScrollView
+        android:layout_above="@+id/btn_order"
+        android:id="@+id/parent_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -48,16 +50,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <Button
-                android:id="@+id/btn_order"
-                android:background="@color/colorPrimary"
-                android:text="ORDER NOW"
-                android:layout_gravity="center"
-                android:layout_width="350dp"
-                android:layout_marginBottom="30dp"
-                android:layout_height="wrap_content" />
+
         </LinearLayout>
     </ScrollView>
 
-
+    <Button
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_order"
+        android:background="@color/colorPrimary"
+        android:text="ORDER NOW"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
