@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroServer {
 
     private static Retrofit retrofit;
-
+//    private static RetroServer retroServer;
 
     public static Retrofit getClient()
     {
@@ -31,4 +31,21 @@ public class RetroServer {
 
         return  retrofit;
     }
+//
+//    private RetroServer(){
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl(Constant.BASEURL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//    }
+//
+//    public static synchronized  RetroServer getInstance(){
+//        if(retroServer == null){
+//            retroServer = new RetroServer();
+//        }return retroServer;
+//    }
+//
+//    public RestApi getApi(){
+//        return retrofit.create(RestApi.class);
+//    }
 }

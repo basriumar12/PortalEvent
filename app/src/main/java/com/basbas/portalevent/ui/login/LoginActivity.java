@@ -77,7 +77,7 @@ public class LoginActivity extends MyFunction {
                 public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                     int kode = response.body().getKode();
                     if(kode==1){
-                        sessionPref.createLoginSession(vUsername);
+                        sessionPref.createLoginSession(vUsername, response.body().getId());
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                         pesan("Berhasil Login");
                     }else {

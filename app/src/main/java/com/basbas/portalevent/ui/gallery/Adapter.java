@@ -1,4 +1,4 @@
-package com.basbas.portalevent.ui.category;
+package com.basbas.portalevent.ui.gallery;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

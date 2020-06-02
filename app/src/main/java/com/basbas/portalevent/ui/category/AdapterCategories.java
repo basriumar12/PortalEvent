@@ -1,6 +1,8 @@
 package com.basbas.portalevent.ui.category;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +39,10 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterCategories.MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterCategories.MyHolder holder, final int position) {
 
         holder.tvTitle.setText(data.get(position).getNama_lapak());
-        holder.tvPrice.setText("RP"+data.get(position).getHarga());
+        holder.tvPrice.setText("RP."+data.get(position).getHarga());
         String url = Constant.BASEURLIMAGE +data.get(position).getUrl_foto();
         if (data.get(position).getUrl_foto().isEmpty()){
             holder.imgCategories.setImageResource(R.drawable.ic_launcher_foreground);
@@ -48,6 +50,18 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
 
             Picasso.get().load(url).error(R.drawable.ic_launcher_background).into(holder.imgCategories);
         }
+        holder.tvDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(con,DetailCategory.class);
+               intent.putExtra("title",data.get(position).getNama_lapak());
+               intent.putExtra("harga",data.get(position).getHarga());
+               intent.putExtra("detail",data.get(position).getDetail());
+               intent.putExtra("gambar",data.get(position).getUrl_foto());
+
+               con.startActivity(intent);
+            }
+        });
 
     }
 
