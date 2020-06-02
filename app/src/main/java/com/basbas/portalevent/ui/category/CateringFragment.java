@@ -73,7 +73,7 @@ public class CateringFragment extends Fragment {
                     adapterCategories.notifyDataSetChanged();
                 }else{
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(getContext(), "Dat aKosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Data Kosong", Toast.LENGTH_SHORT).show();
                 }
             }
 
