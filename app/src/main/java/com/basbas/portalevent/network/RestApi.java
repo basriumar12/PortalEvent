@@ -49,5 +49,15 @@ public interface RestApi {
 
     );
 
+    @FormUrlEncoded
+    @POST("post_keranjang.php")
+    Call<ResponseData> postKeranjang(
+            @Field("id_pembeli") String idPembeli,
+            @Field("id_lapak") String idLapak,
+            @Field("tgl_pakai") String tanggalPakai,
+            @Field("ket_lapak") String keteranganLapak,
+            @Field("jml") String jumlah,
+            @Field("tampil_keranjang") String tampilKeranjang
+    );
 
 }

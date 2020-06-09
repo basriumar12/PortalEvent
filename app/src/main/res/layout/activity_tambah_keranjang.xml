@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.category.TambahKeranjangActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ISI TERLEBIH DAHULU"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/text_10"
+            android:textSize="@dimen/text_22"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/idpembeli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="idpembeli"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/idlapak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="idlapak"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/edt_tanggalPakai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Tangal pakai"
+                android:inputType="date"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/edt_keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Keterangan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/edt_jumlah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Jumlah Order"
+                android:inputType="number"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextAppearance.App.TextView"
+                android:textSize="@dimen/text_16"
+                android:id="@+id/edt_tampilkeranjang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="tampil keranjang"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/TextAppearance.App.TextView"
+            android:textSize="@dimen/text_16"
+            android:id="@+id/btn_TampilKeranjang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_x3"
+            android:background="@color/colorPrimary"
+            android:text="Tampil Keranjang"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView >

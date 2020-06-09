@@ -48,7 +48,6 @@ public class KeranjangActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progres_keranjang);
         recyclerView = findViewById(R.id.rv_keranjang);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        recyclerView.setLayoutManager(layoutManager);
         getData();
     }
 
@@ -60,20 +59,20 @@ public class KeranjangActivity extends AppCompatActivity {
                 .build();
 
         RestApi api = retrofit.create(RestApi.class);
-        Call<ArrayList<ResponseKeranjang>> responseKeranjangCall = api.getKeranjang("Login1590320775");
+        Call<ArrayList<ResponseKeranjang>> responseKeranjangCall = api.getKeranjang("Login1590838121");
         responseKeranjangCall.enqueue(new Callback<ArrayList<ResponseKeranjang>>() {
             @Override
             public void onResponse(Call<ArrayList<ResponseKeranjang>> call, Response<ArrayList<ResponseKeranjang>> response) {
-//                if(response.isSuccessful()){
-//                    progressBar.setVisibility(View.GONE);
-//                    ArrayList<ResponseKeranjang> dataResponse = response.body();
-//                    AdapterKeranjang adapterKeranjang = new AdapterKeranjang(getBaseContext(),dataResponse);
-//                    recyclerView.setAdapter(adapterKeranjang);
-//                    adapterKeranjang.notifyDataSetChanged();
-//                }else {
-//                    progressBar.setVisibility(View.GONE);
-//                    Toast.makeText(KeranjangActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
-//                }
+                if(response.isSuccessful()){
+                    progressBar.setVisibility(View.GONE);
+                    ArrayList<ResponseKeranjang> dataResponse = response.body();
+                    AdapterKeranjang adapterKeranjang = new AdapterKeranjang(getBaseContext(),dataResponse);
+                    recyclerView.setAdapter(adapterKeranjang);
+                    adapterKeranjang.notifyDataSetChanged();
+                }else {
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(KeranjangActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
+                }
 
                 Log.e("TAG","data berhasil "+new Gson().toJson(response.body()));
             }

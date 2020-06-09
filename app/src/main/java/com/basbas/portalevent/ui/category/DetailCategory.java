@@ -3,8 +3,10 @@ package com.basbas.portalevent.ui.category;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +44,14 @@ public class DetailCategory extends AppCompatActivity {
         tvTittle.setText(tittle);
         tvHarga.setText(harga);
         tvDetail.setText(detail);
+
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailCategory.this,TambahKeranjangActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
