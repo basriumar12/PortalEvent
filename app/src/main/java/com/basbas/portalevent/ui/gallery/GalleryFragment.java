@@ -21,8 +21,16 @@ public class GalleryFragment extends Fragment{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         Intent intent = new Intent(getActivity(),TabActivity.class);
         startActivity(intent);
+        getActivity().finish();
         return null;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 }
