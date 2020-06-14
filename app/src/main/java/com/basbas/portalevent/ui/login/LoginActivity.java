@@ -22,41 +22,38 @@ import retrofit2.Response;
 //setiap activity yang dibuat, di extends ke MyFunction
 //supya bisa mendapatkan method pesan dan accseskelas
 public class LoginActivity extends MyFunction {
-    TextView edtUsername,edtPassword;
+    TextView edtUsername, edtPassword;
     Button btn_Login;
     TextView tvGoToegister;
     SessionPref sessionPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //untuk inisialisasi id dibuat dalam method initView
         //unutuk action button dibuat dalam method action button
         //dan untuk http koneksi ke server gunakan method baru
         initView();
         actionButton();
-        loginAction();
+
+
     }
 
-//    private void postLogin() {
-//
-//    }
 
     private void actionButton() {
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginAction();
-                aksesclass(MainActivity.class);
+
 
             }
         });
         tvGoToegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pesan("Ke register");
-               aksesclass(RegisterActivity.class);
+                aksesclass(RegisterActivity.class);
 
             }
         });
@@ -66,27 +63,28 @@ public class LoginActivity extends MyFunction {
         final String vUsername = edtUsername.getText().toString();
         String vPassword = edtPassword.getText().toString();
 
-        if(vUsername.isEmpty() || vPassword.isEmpty()){
+        if (vUsername.isEmpty() || vPassword.isEmpty()) {
             pesan("Jangan kosong ya");
-        }else {
+        } else {
             btn_Login.setVisibility(View.VISIBLE);
             RestApi api = RetroServer.getClient().create(RestApi.class);
-            Call<ResponseData> userLogin = api.userLogin(vUsername,vPassword);
+            Call<ResponseData> userLogin = api.userLogin(vUsername, vPassword);
             userLogin.enqueue(new Callback<ResponseData>() {
                 @Override
                 public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
                     int kode = response.body().getKode();
-                    if(kode==1){
+                    if (kode == 1) {
                         sessionPref.createLoginSession(vUsername, response.body().getId());
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        aksesclass(MainActivity.class);
                         pesan("Berhasil Login");
-                    }else {
+                    } else {
                         pesan("Coba Cek Username dan Password lagi");
                     }
                 }
 
                 @Override
-                public void onFailure(Call<ResponseData> call, Throwable t) { ;
+                public void onFailure(Call<ResponseData> call, Throwable t) {
+                    ;
                     pesan("Gagal Login");
                 }
             });
