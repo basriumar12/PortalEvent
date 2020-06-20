@@ -1,4 +1,4 @@
-package com.basbas.portalevent.ui.gallery;
+package com.basbas.portalevent.ui.category_home;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,11 +8,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class Adapter extends FragmentPagerAdapter {
+public class AdapterCategory extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> arrayList;
 
-    public Adapter(@NonNull FragmentManager fm, ArrayList<Fragment> fragmentArrayList, ArrayList<String> arrayList) {
+    public AdapterCategory(@NonNull FragmentManager fm, ArrayList<Fragment> fragmentArrayList, ArrayList<String> arrayList) {
         super(fm);
         this.fragmentArrayList = fragmentArrayList;
         this.arrayList = arrayList;

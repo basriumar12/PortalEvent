@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/googlesansregular"
+        android:text="@string/silahkan_isi_detail"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/tv_pilih_tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/googlesansregular"
+        android:hint="@string/pilih_tanggal"
+        android:textSize="16sp" />
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:inputType="text"
+        android:gravity="top"
+        android:id="@+id/edt_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="@string/ketenrangan" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_order_now"
+        android:text="Order now"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/radius_smedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progggress_circular_bottom"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

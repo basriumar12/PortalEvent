@@ -1,4 +1,4 @@
-package com.basbas.portalevent.ui.gallery;
+package com.basbas.portalevent.ui.category_home;
 
 
 import androidx.annotation.NonNull;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class TabActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
-    Adapter adapter;
+    AdapterCategory adapterCategory;
     ArrayList<Fragment> arrayFragments;
     ArrayList<String> arrayList;
 
@@ -38,7 +38,7 @@ public class TabActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(adapterCategory);
 
         addFragment();
         addTittle();
@@ -65,8 +65,8 @@ public class TabActivity extends AppCompatActivity {
     }
 
     private void viewPager(){
-        adapter = new Adapter(getSupportFragmentManager(),arrayFragments,arrayList);
-        viewPager.setAdapter(adapter);
+        adapterCategory = new AdapterCategory(getSupportFragmentManager(),arrayFragments,arrayList);
+        viewPager.setAdapter(adapterCategory);
 
         tabLayout.setupWithViewPager(viewPager);
     }

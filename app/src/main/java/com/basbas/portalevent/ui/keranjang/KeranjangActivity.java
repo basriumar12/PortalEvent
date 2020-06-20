@@ -1,25 +1,23 @@
-package com.basbas.portalevent.ui.slideshow;
+package com.basbas.portalevent.ui.keranjang;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basbas.portalevent.R;
-import com.basbas.portalevent.model.ResponseCategories;
 import com.basbas.portalevent.model.ResponseKeranjang;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.pref.SessionPref;
-import com.basbas.portalevent.ui.category.AdapterCategories;
+import com.basbas.portalevent.ui.main.MainActivity;
 import com.basbas.portalevent.utils.Constant;
 import com.google.gson.Gson;
 
@@ -44,6 +42,9 @@ public class KeranjangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keranjang);
+        getSupportActionBar().setTitle(getString(R.string.categories));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 //        init();
         progressBar = findViewById(R.id.progres_keranjang);
         recyclerView = findViewById(R.id.rv_keranjang);
@@ -83,6 +84,22 @@ public class KeranjangActivity extends AppCompatActivity {
                 Toast.makeText(KeranjangActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            onBackPressed();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 //    private void init() {

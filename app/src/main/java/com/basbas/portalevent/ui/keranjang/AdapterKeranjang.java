@@ -1,4 +1,4 @@
-package com.basbas.portalevent.ui.slideshow;
+package com.basbas.portalevent.ui.keranjang;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,12 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.basbas.portalevent.R;
 import com.basbas.portalevent.model.ResponseKeranjang;
-import com.basbas.portalevent.ui.category.AdapterCategories;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Callback;
 
 public class AdapterKeranjang extends RecyclerView.Adapter<AdapterKeranjang.MyHolder> {
     Context context;

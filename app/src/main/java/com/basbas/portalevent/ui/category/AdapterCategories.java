@@ -58,6 +58,7 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
                intent.putExtra("harga",data.get(position).getHarga());
                intent.putExtra("detail",data.get(position).getDetail());
                intent.putExtra("gambar",data.get(position).getUrl_foto());
+               intent.putExtra("idlapak",data.get(position).getId_lapak());
 
                con.startActivity(intent);
             }
