@@ -18,6 +18,8 @@ import com.basbas.portalevent.R;
 import com.basbas.portalevent.model.ResponseKeranjang;
 import com.basbas.portalevent.network.RestApi;
 import com.basbas.portalevent.pref.SessionPref;
+import com.basbas.portalevent.ui.keranjang.model.DataKeranjang;
+import com.basbas.portalevent.ui.keranjang.model.ResponseKeranjangNew;
 import com.basbas.portalevent.utils.Constant;
 import com.google.gson.Gson;
 
@@ -56,15 +58,17 @@ public class KeranjangFragemnt extends Fragment {
                 .baseUrl(Constant.BASEURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
+        sessionPref = new SessionPref(getActivity());
+        String id = sessionPref.getID();
         RestApi api = retrofit.create(RestApi.class);
-        Call<ArrayList<ResponseKeranjang>> responseKeranjangCall = api.getKeranjang("Login1590838121");
-        responseKeranjangCall.enqueue(new Callback<ArrayList<ResponseKeranjang>>() {
+
+        Call<ResponseKeranjangNew> responseKeranjangCalls = api.getKeranjangs(id);
+        responseKeranjangCalls.enqueue(new Callback<ResponseKeranjangNew>() {
             @Override
-            public void onResponse(Call<ArrayList<ResponseKeranjang>> call, Response<ArrayList<ResponseKeranjang>> response) {
+            public void onResponse(Call<ResponseKeranjangNew> call, Response<ResponseKeranjangNew> response) {
                 if(response.isSuccessful()){
                     progressBar.setVisibility(View.GONE);
-                    ArrayList<ResponseKeranjang> dataResponse = response.body();
+                    List<DataKeranjang> dataResponse = response.body().getData();
                     AdapterKeranjang adapterKeranjang = new AdapterKeranjang(getActivity(),dataResponse);
                     recyclerView.setAdapter(adapterKeranjang);
                     adapterKeranjang.notifyDataSetChanged();
@@ -73,14 +77,17 @@ public class KeranjangFragemnt extends Fragment {
                     Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
                 }
 
-                Log.e("TAG","data berhasil "+new Gson().toJson(response.body()));
             }
 
             @Override
-            public void onFailure(Call<ArrayList<ResponseKeranjang>> call, Throwable t) {
+            public void onFailure(Call<ResponseKeranjangNew> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Data Kosong", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+
+
     }
 }

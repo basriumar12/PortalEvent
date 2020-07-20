@@ -3,6 +3,7 @@ package com.basbas.portalevent.network;
 import com.basbas.portalevent.model.ResponseCategories;
 import com.basbas.portalevent.model.ResponseData;
 import com.basbas.portalevent.model.ResponseKeranjang;
+import com.basbas.portalevent.ui.keranjang.model.ResponseKeranjangNew;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,6 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("get_barang.php")
     Call<ArrayList<ResponseCategories>> getBarangCategories(
-
             @Field("id_jenis") String idJenis
 
 
@@ -45,8 +45,12 @@ public interface RestApi {
     @POST("get_keranjang.php")
     Call<ArrayList<ResponseKeranjang>> getKeranjang(
             @Field("id_pembeli") String idPembeli
+    );
 
-
+    @FormUrlEncoded
+    @POST("get_keranjang.php")
+    Call<ResponseKeranjangNew> getKeranjangs(
+            @Field("id_pembeli") String idPembeli
     );
 
     @FormUrlEncoded

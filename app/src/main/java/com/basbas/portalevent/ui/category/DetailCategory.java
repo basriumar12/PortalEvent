@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -138,13 +139,15 @@ public class DetailCategory extends AppCompatActivity {
 
         Calendar newCalendar = Calendar.getInstance();
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            final Calendar newDate = Calendar.getInstance();
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
-                tanggal = dateFormatter.format(newDate.getTime());
-                tvTanggal.setText("Tanggal " + tanggal);
+
+                tvTanggal.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                String tgl = year +"-"+(monthOfYear+1)+"-"+dayOfMonth+" 12:12:12";
+                tanggal = tgl;
+                Log.e("TAG","tgl "+tgl);
 
 
             }

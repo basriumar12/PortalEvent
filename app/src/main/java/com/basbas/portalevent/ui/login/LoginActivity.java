@@ -35,10 +35,13 @@ public class LoginActivity extends MyFunction {
         //unutuk action button dibuat dalam method action button
         //dan untuk http koneksi ke server gunakan method baru
         sessionPref = new SessionPref(LoginActivity.this);
+        try {
+            if (!sessionPref.getID().equals(null)) {
+                sessionPref.checkLogin();
+                finish();
+            }
+        }catch (Exception e){
 
-        if (!sessionPref.getID().equals(null)) {
-            sessionPref.checkLogin();
-            finish();
         }
 
         initView();
