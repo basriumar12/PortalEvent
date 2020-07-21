@@ -145,9 +145,8 @@ public class DetailCategory extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                 tvTanggal.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                String tgl = year +"-"+(monthOfYear+1)+"-"+dayOfMonth+" 12:12:12";
-                tanggal = tgl;
-                Log.e("TAG","tgl "+tgl);
+                tanggal = year +"-"+(monthOfYear+1)+"-"+dayOfMonth+" 12:12:12";
+
 
 
             }
